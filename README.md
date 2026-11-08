@@ -20,6 +20,8 @@ The repository contains a prebuilt FPGA bitstream and its hardware probes file. 
 | `images/` | Place input images here |
 | `results/` | Destination for annotated images and detection text files |
 
+## About the system
+
 ## Requirements
 
 - Digilent Arty A7-100T board connected over JTAG.
@@ -30,39 +32,50 @@ The notebooks use Python's standard library in addition to NumPy, Pillow, and th
 
 ## Run the demo
 
-Run the Tcl commands in the Vivado Tcl Console. Run notebook cells in order from the repository root so the relative file paths resolve correctly.
+Run the Tcl commands in the Vivado Tcl Console. Replace `/path/to/YOLO-V5S-FPGA-Workspace-Implementation` in the commands below with the full path to this repository on your computer. Run notebook cells in order from the repository root so the relative file paths resolve correctly. The demo uses four board LEDs:
+
+| Package pin | Board LED | Meaning |
+|---|---|---|
+| H5 | LED4 | Inference is running |
+| J5 | LED5 | Inference completed successfully |
+| T9 | LED6 | Error occurred |
+| T10 | LED7 | MIG DDR calibration |
 
 1. **Program the FPGA.** In Vivado Hardware Manager, connect to the Arty A7-100T, program it with `bit_files/cnp.bit`, and provide `bit_files/cnp.ltx` as the probes file. Refresh the hardware device if needed so Vivado exposes the JTAG-AXI interface.
 
-2. **Load model parameters.** In the Vivado Tcl Console, run:
+2. **Load model parameters first.** In the Vivado Tcl Console, run:
 
    ```tcl
-   source -notrace sending_param.tcl
+   source -notrace /path/to/YOLO-V5S-FPGA-Workspace-Implementation/sending_param.tcl
    ```
 
    The script transfers `params/load_weights.txt` to DDR and compares every 50th transaction with a readback. DDR contents are lost when the FPGA is reprogrammed, so run this step again after each reprogramming.
 
-3. **Prepare an image.** Put a JPG, PNG, or WebP image in `images/`. In `preparation.ipynb`, set `IMAGE_NAME` to that filename and run the notebook cells in order. The notebook scales the image while preserving its aspect ratio, centers it on a 640×640 canvas with gray padding, converts RGB pixels to Q6.10, and writes `frame_load.txt` and `frame_meta.json` in the repository root.
+3. **Prepare the image.** Put a JPG, PNG, or WebP image in `images/`. In `preparation.ipynb`, set `IMAGE_NAME` to that filename and run the notebook cells in order. The notebook scales the image while preserving its aspect ratio, centers it on a 640×640 canvas with gray padding, converts RGB pixels to Q6.10, and writes `frame_load.txt` and `frame_meta.json` in the repository root. To use a different image, update `IMAGE_NAME` and run the notebook again.
 
-4. **Send the image.** In the Vivado Tcl Console, run:
+   **Do not delete `frame_load.txt` before sending the image.** It is the image data that the Tcl script transfers to the board.
 
-   ```tcl
-   source -notrace sending_image.tcl
-   ```
-
-   The script checks that the prepared frame has the expected length, transfers it to the board, and performs sampled readback verification.
-
-5. **Start inference.** Press BTN0 on the Arty A7-100T after the image transfer finishes.
-
-6. **Retrieve the output.** In the Vivado Tcl Console, run:
+4. **Send the image to DDR.** In the Vivado Tcl Console, run:
 
    ```tcl
-   source -notrace retrieving_tensor.tcl
+   source -notrace /path/to/YOLO-V5S-FPGA-Workspace-Implementation/sending_image.tcl
    ```
 
-   The script waits up to 300 seconds for the completion status. On success, it writes `status.txt`, `det0.txt`, `det1.txt`, and `det2.txt` in the repository root.
+   The script checks that the prepared frame has the expected length, transfers it to DDR, and performs sampled readback verification. Wait until the script reports that the image has been sent.
+
+5. **Start inference.** Press BTN0 after the parameters and image have been loaded. LED4 turns on while inference is running. Wait until LED4 turns off and LED5 turns on to confirm successful completion. LED6 indicates an error; LED7 indicates MIG DDR calibration.
+
+6. **Retrieve the output.** After LED5 turns on, run this in the Vivado Tcl Console:
+
+   ```tcl
+   source -notrace /path/to/YOLO-V5S-FPGA-Workspace-Implementation/retrieving_tensor.tcl
+   ```
+
+   The script reads the completion status and output tensors, then writes `status.txt`, `det0.txt`, `det1.txt`, and `det2.txt` in the repository root.
 
 7. **Decode and save detections.** Run `post_processing.ipynb` from the repository root. It reads the status and tensors, performs YOLOv5-style decoding and non-maximum suppression, then saves `<image>_result.jpg` and `<image>_detections.txt` under `results/`.
+
+**Do not delete required `.txt` files before post-processing.** If `frame_load.txt` is missing, rerun `preparation.ipynb`; if an output file (`status.txt`, `det0.txt`, `det1.txt`, or `det2.txt`) is missing, rerun `retrieving_tensor.tcl` while the FPGA still holds the inference output. If parameters or image data need to be reloaded, rerun the corresponding transfer Tcl script. `params/load_weights.txt` is a required model file and must be restored if deleted.
 
 The notebook's post-processing defaults are a confidence threshold of `0.25`, an IoU threshold of `0.45`, and a maximum of 1000 detections. The reported inference latency is measured from FPGA cycle count at 100 MHz; it does not include image preparation, JTAG transfers, tensor retrieval, or post-processing.
 
