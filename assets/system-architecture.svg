@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1360" viewBox="0 0 2200 1360">
+<rect width="2200" height="1360" fill="#F5F7FB"/>
+<text x="50" y="58" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="39" font-weight="700" text-anchor="start" dominant-baseline="central">YOLOv5s on Arty A7-100T</text>
+<text x="50" y="108" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="400" text-anchor="start" dominant-baseline="central">System architecture  /  host workflow and FPGA accelerator</text>
+<rect x="40" y="170" width="340" height="1080" rx="22" fill="#ECF1F7" stroke="#CBD5E1" stroke-width="2"/>
+<text x="70" y="210" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700" text-anchor="start" dominant-baseline="central">HOST COMPUTER</text>
+<rect x="480" y="170" width="1350" height="1080" rx="22" fill="white" stroke="#7595BC" stroke-width="2"/>
+<text x="515" y="210" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="25" font-weight="700" text-anchor="start" dominant-baseline="central">FPGA  /  cnp</text>
+<text x="1795" y="210" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" text-anchor="end" dominant-baseline="central">Arty A7-100T</text>
+<rect x="65" y="285" width="290" height="130" rx="15" fill="white" stroke="#087E8B" stroke-width="2"/>
+<text x="210.0" y="317" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="central">PREPARE IMAGE</text>
+<text x="210.0" y="354" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">preparation.ipynb</text>
+<text x="210.0" y="384" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">640×640 · Q6.10</text>
+<rect x="65" y="490" width="290" height="155" rx="15" fill="white" stroke="#087E8B" stroke-width="2"/>
+<text x="210.0" y="522" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="central">VIVADO / Tcl</text>
+<text x="210.0" y="559" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">Load parameters + frame</text>
+<text x="210.0" y="589" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">Read tensors + status</text>
+<rect x="65" y="820" width="290" height="155" rx="15" fill="white" stroke="#087E8B" stroke-width="2"/>
+<text x="210.0" y="852" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="central">DECODE &amp; DRAW</text>
+<text x="210.0" y="889" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">post_processing.ipynb</text>
+<text x="210.0" y="919" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">Decode · NMS · boxes</text>
+<polyline points="210,415 210,490" fill="none" stroke="#087E8B" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="210,490 215.0,478.0 205.0,478.0" fill="#087E8B"/>
+<text x="230" y="454" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" dominant-baseline="central">frame_load.txt</text>
+<polyline points="210,645 210,820" fill="none" stroke="#087E8B" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="210,820 215.0,808.0 205.0,808.0" fill="#087E8B"/>
+<text x="230" y="725" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" dominant-baseline="central">Output tensors</text>
+<text x="230" y="755" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="400" text-anchor="start" dominant-baseline="central">+ run status</text>
+<text x="210" y="1090" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">Image preparation and</text>
+<text x="210" y="1120" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">detection post-processing</text>
+<text x="210" y="1150" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">run on the host.</text>
+<rect x="530" y="265" width="1250" height="255" rx="16" fill="#F0F6FD" stroke="#B6CCE5" stroke-width="2"/>
+<text x="555" y="298" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700" text-anchor="start" dominant-baseline="central">ddr_sys  /  memory and board infrastructure</text>
+<rect x="580" y="350" width="250" height="100" rx="15" fill="white" stroke="#356CB2" stroke-width="2"/>
+<text x="705.0" y="382" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="central">JTAG-AXI</text>
+<rect x="1000" y="350" width="290" height="100" rx="15" fill="white" stroke="#356CB2" stroke-width="2"/>
+<text x="1145.0" y="382" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="central">SmartConnect</text>
+<rect x="1460" y="350" width="240" height="100" rx="15" fill="white" stroke="#356CB2" stroke-width="2"/>
+<text x="1580.0" y="382" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="central">MIG</text>
+<text x="705" y="413" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" text-anchor="middle" dominant-baseline="central">Host interface</text>
+<text x="1145" y="413" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" text-anchor="middle" dominant-baseline="central">Shared DDR access</text>
+<text x="1580" y="413" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" text-anchor="middle" dominant-baseline="central">DDR3 controller</text>
+<polyline points="355,567.5 420,567.5 420,400 580,400" fill="none" stroke="#087E8B" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="580,400 568.0,395.0 568.0,405.0" fill="#087E8B"/>
+<polygon points="355,567.5 367.0,572.5 367.0,562.5" fill="#087E8B"/>
+<polyline points="830,400 1000,400" fill="none" stroke="#087E8B" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1000,400 988.0,395.0 988.0,405.0" fill="#087E8B"/>
+<polygon points="830,400 842.0,405.0 842.0,395.0" fill="#087E8B"/>
+<polyline points="1290,400 1460,400" fill="none" stroke="#087E8B" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1460,400 1448.0,395.0 1448.0,405.0" fill="#087E8B"/>
+<polygon points="1290,400 1302.0,405.0 1302.0,395.0" fill="#087E8B"/>
+<rect x="1900" y="345" width="250" height="110" rx="15" fill="white" stroke="#087E8B" stroke-width="2"/>
+<text x="2025.0" y="377" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="central">DDR3 MEMORY</text>
+<text x="2025.0" y="414" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">Parameters · tensors</text>
+<polyline points="1700,400 1900,400" fill="none" stroke="#087E8B" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1900,400 1888.0,395.0 1888.0,405.0" fill="#087E8B"/>
+<polygon points="1700,400 1712.0,405.0 1712.0,395.0" fill="#087E8B"/>
+<text x="555" y="483" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" text-anchor="start" dominant-baseline="central">Clock / reset / DDR calibration</text>
+<rect x="530" y="600" width="1250" height="560" rx="16" fill="#F4FAF9" stroke="#ACD2CF" stroke-width="2"/>
+<text x="585" y="635" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="700" text-anchor="start" dominant-baseline="central">core_machine  /  accelerator core</text>
+<rect x="650" y="680" width="340" height="105" rx="15" fill="white" stroke="#7754B5" stroke-width="2"/>
+<text x="820.0" y="712" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="central">PROGRAM ROM + ISA</text>
+<text x="820.0" y="749" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">Layer configuration</text>
+<rect x="1150" y="680" width="340" height="105" rx="15" fill="white" stroke="#7754B5" stroke-width="2"/>
+<text x="1320.0" y="712" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="central">SEQUENCER</text>
+<text x="1320.0" y="749" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">Layer and data scheduling</text>
+<polyline points="990,732.5 1150,732.5" fill="none" stroke="#7754B5" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1150,732.5 1138.0,727.5 1138.0,737.5" fill="#7754B5"/>
+<text x="820" y="808" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="middle" dominant-baseline="central">Program embedded in bitstream</text>
+<polyline points="1145,450 1145,565" fill="none" stroke="#087E8B" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1145,450 1140.0,462.0 1150.0,462.0" fill="#087E8B"/>
+<polyline points="1145,565 560,565 560,965 575,965" fill="none" stroke="#087E8B" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="575,965 563.0,960.0 563.0,970.0" fill="#087E8B"/>
+<text x="755" y="546" fill="#087E8B" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" text-anchor="middle" dominant-baseline="central">AXI read</text>
+<polyline points="1735,965 1760,965 1760,565 1145,565" fill="none" stroke="#087E8B" stroke-width="3" stroke-linejoin="round"/>
+<text x="1505" y="546" fill="#087E8B" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" text-anchor="middle" dominant-baseline="central">AXI write</text>
+<polyline points="1320,785 1320,845" fill="none" stroke="#7754B5" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7"/>
+<polyline points="705,845 1605,845" fill="none" stroke="#7754B5" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7"/>
+<polyline points="705,845 705,900" fill="none" stroke="#7754B5" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7"/>
+<polygon points="705,900 710.0,888.0 700.0,888.0" fill="#7754B5"/>
+<polyline points="1005,845 1005,900" fill="none" stroke="#7754B5" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7"/>
+<polygon points="1005,900 1010.0,888.0 1000.0,888.0" fill="#7754B5"/>
+<polyline points="1305,845 1305,900" fill="none" stroke="#7754B5" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7"/>
+<polygon points="1305,900 1310.0,888.0 1300.0,888.0" fill="#7754B5"/>
+<polyline points="1605,845 1605,900" fill="none" stroke="#7754B5" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7"/>
+<polygon points="1605,900 1610.0,888.0 1600.0,888.0" fill="#7754B5"/>
+<rect x="575" y="900" width="260" height="130" rx="15" fill="white" stroke="#087E8B" stroke-width="2"/>
+<text x="705.0" y="932" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="central">LOAD</text>
+<text x="705.0" y="969" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="400" text-anchor="middle" dominant-baseline="central">Parameters + activations</text>
+<text x="705.0" y="999" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" text-anchor="middle" dominant-baseline="central">DDR3 → on-chip buffers</text>
+<rect x="875" y="900" width="260" height="130" rx="15" fill="white" stroke="#087E8B" stroke-width="2"/>
+<text x="1005.0" y="932" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="central">COMPUTE</text>
+<text x="1005.0" y="969" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="400" text-anchor="middle" dominant-baseline="central">8 × 4×4 systolic arrays</text>
+<text x="1005.0" y="999" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">Convolution · max-pool</text>
+<rect x="1175" y="900" width="260" height="130" rx="15" fill="white" stroke="#087E8B" stroke-width="2"/>
+<text x="1305.0" y="932" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="central">POST</text>
+<text x="1305.0" y="969" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">Bias · requantization</text>
+<text x="1305.0" y="999" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">SiLU · output buffer</text>
+<rect x="1475" y="900" width="260" height="130" rx="15" fill="white" stroke="#087E8B" stroke-width="2"/>
+<text x="1605.0" y="932" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="700" text-anchor="middle" dominant-baseline="central">STORE</text>
+<text x="1605.0" y="969" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">Residual · upsampling</text>
+<text x="1605.0" y="999" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">Results → DDR3</text>
+<polyline points="835,965 875,965" fill="none" stroke="#087E8B" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="875,965 863.0,960.0 863.0,970.0" fill="#087E8B"/>
+<polyline points="1135,965 1175,965" fill="none" stroke="#087E8B" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1175,965 1163.0,960.0 1163.0,970.0" fill="#087E8B"/>
+<polyline points="1435,965 1475,965" fill="none" stroke="#087E8B" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1475,965 1463.0,960.0 1463.0,970.0" fill="#087E8B"/>
+<text x="1155" y="1110" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" text-anchor="middle" dominant-baseline="central">100 MHz  ·  Q6.10  ·  output-stationary compute  ·  on-chip working buffers</text>
+<text x="1155" y="1205" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" text-anchor="middle" dominant-baseline="central">BTN0: start   /   LEDs: busy · complete · error · DDR calibration</text>
+<polyline points="50,1303 120,1303" fill="none" stroke="#087E8B" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="120,1303 108.0,1298.0 108.0,1308.0" fill="#087E8B"/>
+<text x="135" y="1303" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start" dominant-baseline="central">Data transfer</text>
+<polyline points="345,1303 415,1303" fill="none" stroke="#7754B5" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7"/>
+<polygon points="415,1303 403.0,1298.0 403.0,1308.0" fill="#7754B5"/>
+<text x="430" y="1303" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="start" dominant-baseline="central">Control</text>
+<text x="2145" y="1303" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" text-anchor="end" dominant-baseline="central">Model parameters are loaded into DDR3 at runtime.</text>
+</svg>

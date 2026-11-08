@@ -17,10 +17,21 @@ The repository contains a prebuilt FPGA bitstream and its hardware probes file. 
 | `post_processing.ipynb` | Decodes output tensors, applies non-maximum suppression, and saves detections |
 | `params/load_weights.txt` | Fused, quantized YOLOv5s model parameters in the accelerator's memory layout |
 | `params/yolov5s_meta.json` | Class names, strides, anchors, and parameter layout metadata |
+| `assets/` | System architecture and demo timeline diagrams in PNG and SVG formats |
 | `images/` | Place input images here |
 | `results/` | Destination for annotated images and detection text files |
 
 ## About the system
+
+The system implements a YOLOv5s accelerator on the Arty A7-100T, with a 100 MHz core and 16-bit Q6.10 fixed-point data. A custom layer-level instruction set and sequencer coordinate the LOAD, COMPUTE, POST, and STORE stages. The compute engine uses eight 4×4 output-stationary systolic arrays. POST handles bias, requantization, and SiLU; STORE handles residual addition and upsampling as configured.
+
+Model parameters and input images are loaded into DDR3 through JTAG-AXI. The accelerator reads data from DDR3 and writes intermediate tensors and final outputs back to memory. Image preparation, detection decoding, non-maximum suppression, and visualization run on the host computer.
+
+![YOLOv5s system architecture: host, FPGA accelerator, and DDR3 memory](assets/system-architecture.png)
+
+DDR3 is a separate chip on the same Arty A7-100T board. The FPGA boundary in the diagram represents the FPGA chip.
+
+This release provides the prebuilt bitstream and host-side demo workflow. The RTL sources and Vivado project are retained for ongoing research.
 
 ## Requirements
 
@@ -31,6 +42,10 @@ The repository contains a prebuilt FPGA bitstream and its hardware probes file. 
 The notebooks use Python's standard library in addition to NumPy, Pillow, and the Jupyter/IPython environment. No Ultralytics Python package is required for post-processing.
 
 ## Run the demo
+
+![YOLOv5S timeline detail: parameter loading, image loading, inference, and tensor retrieval](assets/demo-timeline.png)
+
+Parameter loading runs once after FPGA programming; the remaining stages repeat for each image. Upload times are estimates, and tensor retrieval time is rounded from a previous measurement. The timeline excludes notebook execution and manual waiting.
 
 Run the Tcl commands in the Vivado Tcl Console. Replace `/path/to/YOLO-V5S-FPGA-Workspace-Implementation` in the commands below with the full path to this repository on your computer. Run notebook cells in order from the repository root so the relative file paths resolve correctly. The demo uses four board LEDs:
 

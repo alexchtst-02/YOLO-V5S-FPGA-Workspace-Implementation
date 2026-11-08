@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1000" viewBox="0 0 2200 1000">
+<rect width="2200" height="1000" fill="#F5F7FB"/>
+<text x="65" y="65" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="39" font-weight="700" text-anchor="start" dominant-baseline="central">YOLOv5S Timeline Detail</text>
+<text x="65" y="116" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" text-anchor="start" dominant-baseline="central">JTAG-AXI transfers and single-frame inference</text>
+<text x="365" y="194" fill="#697586" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" text-anchor="middle" dominant-baseline="central">01</text>
+<text x="365" y="238" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="700" text-anchor="middle" dominant-baseline="central">Load parameters to DDR</text>
+<defs><pattern id="hatch_697586_120" patternUnits="userSpaceOnUse" width="22" height="22"><rect width="22" height="22" fill="#EEF0F3"/><path d="M-11 22 L22 -11 M0 33 L33 0" stroke="#697586" stroke-width="1.4" opacity="0.26"/></pattern></defs>
+<rect x="120" y="295" width="490" height="145" fill="url(#hatch_697586_120)" stroke="#697586" stroke-width="2"/>
+<text x="365" y="352" fill="#697586" font-family="DejaVu Sans, sans-serif" font-size="34" font-weight="700" text-anchor="middle" dominant-baseline="central">13.8 MB</text>
+<text x="365" y="389" fill="#697586" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" text-anchor="middle" dominant-baseline="central">Model parameters</text>
+<text x="365" y="497" fill="#697586" font-family="DejaVu Sans, sans-serif" font-size="39" font-weight="700" text-anchor="middle" dominant-baseline="central">≈3 min</text>
+<text x="365" y="550" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" text-anchor="middle" dominant-baseline="central">sending_param.tcl</text>
+<text x="365" y="589" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">Estimated</text>
+<text x="855" y="194" fill="#697586" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" text-anchor="middle" dominant-baseline="central">02</text>
+<text x="855" y="238" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="700" text-anchor="middle" dominant-baseline="central">Load image to DDR</text>
+<defs><pattern id="hatch_697586_610" patternUnits="userSpaceOnUse" width="22" height="22"><rect width="22" height="22" fill="#EEF0F3"/><path d="M-11 22 L22 -11 M0 33 L33 0" stroke="#697586" stroke-width="1.4" opacity="0.26"/></pattern></defs>
+<rect x="610" y="295" width="490" height="145" fill="url(#hatch_697586_610)" stroke="#697586" stroke-width="2"/>
+<text x="855" y="352" fill="#697586" font-family="DejaVu Sans, sans-serif" font-size="34" font-weight="700" text-anchor="middle" dominant-baseline="central">3.75 MB</text>
+<text x="855" y="389" fill="#697586" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" text-anchor="middle" dominant-baseline="central">Input tensor</text>
+<text x="855" y="497" fill="#697586" font-family="DejaVu Sans, sans-serif" font-size="39" font-weight="700" text-anchor="middle" dominant-baseline="central">≈45 s</text>
+<text x="855" y="550" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" text-anchor="middle" dominant-baseline="central">sending_image.tcl</text>
+<text x="855" y="589" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">Estimated</text>
+<text x="1345" y="194" fill="#356CB2" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" text-anchor="middle" dominant-baseline="central">03</text>
+<text x="1345" y="238" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="700" text-anchor="middle" dominant-baseline="central">Inference: 1 frame</text>
+<defs><pattern id="hatch_356CB2_1100" patternUnits="userSpaceOnUse" width="22" height="22"><rect width="22" height="22" fill="#E7F0FD"/><path d="M-11 22 L22 -11 M0 33 L33 0" stroke="#356CB2" stroke-width="1.4" opacity="0.26"/></pattern></defs>
+<rect x="1100" y="295" width="490" height="145" fill="url(#hatch_356CB2_1100)" stroke="#356CB2" stroke-width="2"/>
+<text x="1345" y="352" fill="#356CB2" font-family="DejaVu Sans, sans-serif" font-size="34" font-weight="700" text-anchor="middle" dominant-baseline="central">1 frame</text>
+<text x="1345" y="389" fill="#356CB2" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" text-anchor="middle" dominant-baseline="central">640×640 RGB</text>
+<text x="1345" y="497" fill="#356CB2" font-family="DejaVu Sans, sans-serif" font-size="39" font-weight="700" text-anchor="middle" dominant-baseline="central">≈0.7 s</text>
+<text x="1345" y="550" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" text-anchor="middle" dominant-baseline="central">BTN0 → hardware</text>
+<text x="1345" y="589" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">FPGA inference</text>
+<text x="1835" y="194" fill="#697586" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" text-anchor="middle" dominant-baseline="central">04</text>
+<text x="1835" y="238" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="26" font-weight="700" text-anchor="middle" dominant-baseline="central">Retrieve tensors from DDR</text>
+<defs><pattern id="hatch_697586_1590" patternUnits="userSpaceOnUse" width="22" height="22"><rect width="22" height="22" fill="#EEF0F3"/><path d="M-11 22 L22 -11 M0 33 L33 0" stroke="#697586" stroke-width="1.4" opacity="0.26"/></pattern></defs>
+<rect x="1590" y="295" width="490" height="145" fill="url(#hatch_697586_1590)" stroke="#697586" stroke-width="2"/>
+<text x="1835" y="352" fill="#697586" font-family="DejaVu Sans, sans-serif" font-size="34" font-weight="700" text-anchor="middle" dominant-baseline="central">6.9 MB</text>
+<text x="1835" y="389" fill="#697586" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" text-anchor="middle" dominant-baseline="central">Output tensors + status</text>
+<text x="1835" y="497" fill="#697586" font-family="DejaVu Sans, sans-serif" font-size="39" font-weight="700" text-anchor="middle" dominant-baseline="central">≈1.5 min</text>
+<text x="1835" y="550" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="24" font-weight="400" text-anchor="middle" dominant-baseline="central">retrieving_tensor.tcl</text>
+<text x="1835" y="589" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="400" text-anchor="middle" dominant-baseline="central">Measured, rounded</text>
+<text x="105" y="367.5" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="700" text-anchor="end" dominant-baseline="central">START</text>
+<text x="2095" y="367.5" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="700" text-anchor="start" dominant-baseline="central">END</text>
+<polyline points="140,639 140,655 590,655 590,639" fill="none" stroke="#697586" stroke-width="2" stroke-linejoin="round"/>
+<text x="365" y="693" fill="#697586" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="700" text-anchor="middle" dominant-baseline="central">Once after FPGA programming</text>
+<polyline points="630,639 630,655 2060,655 2060,639" fill="none" stroke="#697586" stroke-width="2" stroke-linejoin="round"/>
+<text x="1345" y="693" fill="#697586" font-family="DejaVu Sans, sans-serif" font-size="23" font-weight="700" text-anchor="middle" dominant-baseline="central">Repeat for each image</text>
+<rect x="120" y="765" width="950" height="120" rx="16" fill="white" stroke="#CBD5E1" stroke-width="2"/>
+<text x="150" y="800" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="700" text-anchor="start" dominant-baseline="central">FIRST IMAGE</text>
+<text x="150" y="850" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="34" font-weight="700" text-anchor="start" dominant-baseline="central">≈5 min 16 s</text>
+<text x="1038" y="850" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="end" dominant-baseline="central">Includes parameter loading</text>
+<rect x="1100" y="765" width="980" height="120" rx="16" fill="white" stroke="#CBD5E1" stroke-width="2"/>
+<text x="1130" y="800" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="19" font-weight="700" text-anchor="start" dominant-baseline="central">EACH FOLLOWING IMAGE</text>
+<text x="1130" y="850" fill="#142A45" font-family="DejaVu Sans, sans-serif" font-size="34" font-weight="700" text-anchor="start" dominant-baseline="central">≈2 min 16 s</text>
+<text x="2048" y="850" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="400" text-anchor="end" dominant-baseline="central">Parameters remain in DDR</text>
+<text x="1100" y="946" fill="#52637A" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="400" text-anchor="middle" dominant-baseline="central">Schematic timeline · not to scale · excludes notebook execution and manual waiting</text>
+</svg>
